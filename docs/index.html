@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal - CookPal</title>
+    <title>CookPal - Your AI Recipe Companion</title>
+    <meta name="description" content="CookPal helps you discover, save, and cook amazing recipes with AI-powered features. Import recipes from any URL, generate ideas from ingredients, and cook with confidence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
     <style>
         :root {
+            --amber-400: #fbbf24;
             --amber-500: #f59e0b;
             --amber-600: #d97706;
             --neutral-50: #fafafa;
             --neutral-100: #f5f5f5;
             --neutral-200: #e5e5e5;
+            --neutral-300: #d4d4d4;
             --neutral-400: #a3a3a3;
+            --neutral-500: #737373;
             --neutral-600: #525252;
             --neutral-700: #404040;
             --neutral-800: #262626;
+            --neutral-900: #171717;
         }
 
         * {
@@ -24,156 +32,350 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--neutral-50);
-            color: var(--neutral-700);
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--neutral-900);
+            color: var(--neutral-100);
             line-height: 1.6;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Gradient background */
+        .hero-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100vh;
+            background: 
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(245, 158, 11, 0.15), transparent),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(251, 191, 36, 0.08), transparent),
+                var(--neutral-900);
+            z-index: -1;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 720px;
             margin: 0 auto;
-            padding: 60px 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 0 24px;
         }
 
-        header {
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
             text-align: center;
+        }
+
+        .logo-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(145deg, var(--amber-400), var(--amber-600));
+            border-radius: 28px;
+            font-size: 3rem;
+            margin-bottom: 32px;
+            box-shadow: 
+                0 20px 40px rgba(245, 158, 11, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .tagline {
+            font-size: 1.25rem;
+            color: var(--neutral-400);
+            max-width: 480px;
+            margin: 0 auto 40px;
+        }
+
+        /* App Store Button */
+        .download-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            background: white;
+            color: var(--neutral-900);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .app-store-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .coming-soon {
+            font-size: 0.875rem;
+            color: var(--neutral-500);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: white;
             margin-bottom: 40px;
         }
 
-        .logo {
-            font-size: 4rem;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(245, 158, 11, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
             margin-bottom: 16px;
         }
 
-        header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--neutral-800);
+        .feature-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: white;
             margin-bottom: 8px;
         }
 
-        header p {
-            font-size: 1rem;
-            color: var(--neutral-600);
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--neutral-400);
+            line-height: 1.5;
+        }
+
+        /* Legal Section */
+        .legal-section {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .legal-section h2 {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--neutral-400);
+            margin-bottom: 24px;
         }
 
         .legal-links {
             display: flex;
-            flex-direction: column;
-            gap: 16px;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
         }
 
         .legal-link {
             display: flex;
             align-items: center;
-            padding: 20px 24px;
-            background-color: white;
-            border: 1px solid var(--neutral-200);
-            border-radius: 12px;
+            gap: 8px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
             text-decoration: none;
-            color: var(--neutral-700);
+            color: var(--neutral-300);
+            font-size: 0.95rem;
+            font-weight: 500;
             transition: all 0.2s ease;
         }
 
         .legal-link:hover {
-            border-color: var(--amber-500);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(245, 158, 11, 0.3);
+            color: white;
         }
 
         .legal-link .icon {
-            font-size: 1.5rem;
-            margin-right: 16px;
-            width: 48px;
-            height: 48px;
-            background-color: var(--neutral-100);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 1.1rem;
         }
 
-        .legal-link .content h2 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--neutral-800);
-            margin-bottom: 4px;
-        }
-
-        .legal-link .content p {
-            font-size: 0.875rem;
-            color: var(--neutral-600);
-        }
-
-        .legal-link .arrow {
-            margin-left: auto;
-            color: var(--neutral-400);
-            font-size: 1.25rem;
-        }
-
+        /* Footer */
         footer {
             text-align: center;
-            padding: 24px 20px;
-            border-top: 1px solid var(--neutral-200);
-            background-color: white;
+            padding: 40px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         footer p {
-            font-size: 0.75rem;
-            color: var(--neutral-400);
+            font-size: 0.875rem;
+            color: var(--neutral-500);
         }
 
         footer a {
-            color: var(--amber-600);
+            color: var(--amber-500);
             text-decoration: none;
         }
 
         footer a:hover {
             text-decoration: underline;
         }
+
+        footer .contact {
+            margin-top: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .logo-wrapper {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+                border-radius: 22px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .legal-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .legal-link {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">🍳</div>
+    <div class="hero-bg"></div>
+
+    <section class="hero">
+        <div class="container">
+            <div class="logo-wrapper">🍳</div>
             <h1>CookPal</h1>
-            <p>Legal Information</p>
-        </header>
-
-        <div class="legal-links">
-            <a href="privacy-policy.html" class="legal-link">
-                <div class="icon">🔒</div>
-                <div class="content">
-                    <h2>Privacy Policy</h2>
-                    <p>How we collect, use, and protect your data</p>
-                </div>
-                <span class="arrow">→</span>
-            </a>
-
-            <a href="terms-and-conditions.html" class="legal-link">
-                <div class="icon">📄</div>
-                <div class="content">
-                    <h2>Terms & Conditions</h2>
-                    <p>Rules and guidelines for using CookPal</p>
-                </div>
-                <span class="arrow">→</span>
-            </a>
+            <p class="tagline">Your AI-powered recipe companion. Import recipes from anywhere, get cooking ideas from ingredients you have, and cook with confidence.</p>
+            
+            <div class="download-section">
+                <a href="#" class="app-store-btn" onclick="event.preventDefault();">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    Download on the App Store
+                </a>
+                <span class="coming-soon">Coming Soon</span>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Everything you need to cook better</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Import Any Recipe</h3>
+                    <p>Paste a URL from any recipe website and instantly save it to your collection, beautifully formatted.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AI Recipe Ideas</h3>
+                    <p>Tell us what ingredients you have and get personalized recipe suggestions powered by AI.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Cook Mode</h3>
+                    <p>Step-by-step cooking instructions with timers and easy navigation. Keep your screen on while cooking.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Shopping Lists</h3>
+                    <p>Automatically generate shopping lists from recipes. Check off items as you shop.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Organize Recipes</h3>
+                    <p>Create cookbooks and categories to keep your recipes organized exactly how you want.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🥗</div>
+                    <h3>Nutrition Info</h3>
+                    <p>Get detailed nutritional information for any recipe with a single tap.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="legal-section">
+        <div class="container">
+            <h2>Legal</h2>
+            <div class="legal-links">
+                <a href="../../../Downloads/privacy-policy.html" class="legal-link">
+                    <span class="icon">🔒</span>
+                    Privacy Policy
+                </a>
+                <a href="../../../Downloads/terms-and-conditions.html" class="legal-link">
+                    <span class="icon">📄</span>
+                    Terms & Conditions
+                </a>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>© 2025 CookPal. All rights reserved.</p>
-        <p style="margin-top: 8px;">Contact: <a href="mailto:bananabreadlabs@gmail.com">bananabreadlabs@gmail.com</a></p>
+        <div class="container">
+            <p>© 2025 CookPal. All rights reserved.</p>
+            <p class="contact">Contact: <a href="mailto:bananabreadlabs@gmail.com">bananabreadlabs@gmail.com</a></p>
+        </div>
     </footer>
 </body>
 </html>
-
