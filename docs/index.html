@@ -70,15 +70,18 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(145deg, var(--amber-400), var(--amber-600));
-            border-radius: 28px;
-            font-size: 3rem;
+            width: 120px;
+            height: 120px;
             margin-bottom: 32px;
+        }
+
+        .app-icon {
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
             box-shadow: 
                 0 20px 40px rgba(245, 158, 11, 0.25),
-                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+                0 0 0 1px rgba(255, 255, 255, 0.1);
         }
 
         .hero h1 {
@@ -301,7 +304,9 @@
 
     <section class="hero">
         <div class="container">
-            <div class="logo-wrapper">🍳</div>
+            <div class="logo-wrapper">
+                <img src="cookpal_icon.png" alt="CookPal" class="app-icon">
+            </div>
             <h1>CookPal</h1>
             <p class="tagline">Your AI-powered recipe companion. Import recipes from anywhere, get cooking ideas from ingredients you have, and cook with confidence.</p>
             
@@ -359,11 +364,11 @@
         <div class="container">
             <h2>Legal</h2>
             <div class="legal-links">
-                <a href="../../../Downloads/privacy-policy.html" class="legal-link">
+                <a href="privacy-policy.html" class="legal-link">
                     <span class="icon">🔒</span>
                     Privacy Policy
                 </a>
-                <a href="../../../Downloads/terms-and-conditions.html" class="legal-link">
+                <a href="terms-and-conditions.html" class="legal-link">
                     <span class="icon">📄</span>
                     Terms & Conditions
                 </a>
