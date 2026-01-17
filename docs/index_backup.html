@@ -99,28 +99,6 @@
             margin: 0 auto 40px;
         }
 
-        /* App Screenshot */
-        .app-screenshot {
-            max-width: 280px;
-            width: 100%;
-            height: auto;
-            margin: 0 auto 40px;
-            border-radius: 24px;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.5),
-                0 0 0 1px rgba(255, 255, 255, 0.1),
-                0 0 0 8px rgba(245, 158, 11, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .app-screenshot:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 
-                0 30px 80px rgba(0, 0, 0, 0.6),
-                0 0 0 1px rgba(255, 255, 255, 0.15),
-                0 0 0 8px rgba(245, 158, 11, 0.15);
-        }
-
         /* App Store Button */
         .download-section {
             display: flex;
@@ -320,11 +298,6 @@
                 border-radius: 22px;
             }
 
-            .app-screenshot {
-                max-width: 240px;
-                border-radius: 20px;
-            }
-
             .features-grid {
                 grid-template-columns: 1fr;
             }
@@ -353,8 +326,6 @@
             </div>
             <h1>CookPal</h1>
             <p class="tagline">Your AI-powered recipe companion. Import recipes from anywhere, get cooking ideas from ingredients you have, and cook with confidence.</p>
-            
-            <img src="app_screenshots/app_homepage.jpeg" alt="CookPal App Screenshot" class="app-screenshot">
             
             <div class="download-section">
                 <a href="#" class="app-store-btn" onclick="event.preventDefault();">
